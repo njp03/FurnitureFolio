@@ -1,0 +1,99 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Cart{% endblock title %}
+{% block main-content %}
+<div class="container my-5">
+ <div class="row">
+   {% if carts %}
+  <h1 class="text-center mb-5" style="font-family: 'Amiri', serif;
+  font-family: 'Caveat', cursive;
+  font-family: 'Hahmlet', serif; color:#a56600;">My Cart</h1>
+  {% if messages %}
+  {% for message in messages %}
+  <p {% if message.tags %} class="alert alert-{{message.tags}} mb-5 text-center"{% endif %}>{{message}}</p>
+  {% endfor %}
+  {% endif %}
+    
+  <div class="col-sm-8">
+  <div class="card">
+   <div class="card-body">
+    
+    
+    {% for cart in carts %}
+   
+    
+    <div class="row">
+     <div class="col-sm-3 text-center align-self-center"><img src="{{cart.product.product_image.url}}" alt="" srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"> </div>
+     <div class="col-sm-9">
+      <div>
+       <h5> {{cart.product.title}} </h5>
+       <p class="mb-2 text-muted small">{{cart.product.description}}</p>
+       <div class="my-3">
+        <label for="quantity">Quantity:</label>
+        <a class="minus-cart btn" pid="{{cart.product.id}}"><i class="fas fa-minus-square fa-lg"></i></a>
+          <span id="quantity">{{cart.quantity}}</span>
+        <a class="plus-cart btn" pid="{{cart.product.id}}"><i class="fas fa-plus-square fa-lg"></i></a>
+       </div> 
+       <div class="d-flex justify-content-between">
+        <a href="#" class="btn btn-sm btn-secondary mr-3 remove-cart" pid="{{cart.product.id}}">Remove item </a>
+        <p class="mb-0"><span><strong style="color:#a56600;">Rs. {{cart.product.selling_price}}</strong></span></p>
+       </div>
+      </div>
+     </div>
+    </div>
+    <hr class="text-muted">
+    
+    {% endfor %}
+
+   
+    
+ 
+   </div>
+   </div>
+  </div>
+
+  <div class="col-sm-4">
+   <div class="card">
+    <div class="card-body">
+      <h3>Total Amount </h3>
+      <ul class="list-group">
+       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">Amount<span>Rs.<span id="amount" >{{amount}}</span></span></li>
+       <li class="list-group-item d-flex justify-content-between align-items-center px-0">Shipping<span>Rs. 150</span></li>
+       <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+        <div>
+           <strong>Total</strong> <small></small>
+         </div>
+         <span><strong style="color:#a56600;"">Rs. <strong id="totalamount">{{totalamount}}</strong></strong></span>
+       </li>
+      </ul>
+      <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-dark">Place Order</a></div>
+    </div>
+   </div>
+  
+
+   
+  </div>
+  
+ </div>
+</div>
+
+<div class="container">
+ <div class="row">
+  <div class="col-sm-8">
+   
+  
+  </div>
+ 
+
+{% else %}
+<div class="container my-5">
+<div class="col-sm-9 offset-sm-1 text-center">
+
+  <img src="{% static 'app/images/no-cart.gif' %}" alt="" class="img-fluid">
+</div>
+</div>
+{% endif %}
+</div>
+</div>
+
+{% endblock main-content %}

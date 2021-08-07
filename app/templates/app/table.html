@@ -1,0 +1,47 @@
+
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Table{% endblock title %}
+{% block main-content %}
+
+<!-- <div class="container my-5">
+ <div class="row">
+  <div class="col-sm-3"> -->
+      <div  class="container mb-5">
+      <div class=" row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+        {% for p in  table %}
+          <!-- <div class="col">
+            <div class="mx-3"> -->
+           
+            <a href="{% url 'product-detail' p.id %}" class="btn">
+            <div class="col-md-4">
+                <div class="card mycard mt-3">
+                    <div class="product-1 align-items-center p-2 text-center">
+                        <img src="{{p.product_image.url}}" alt="" width="260px" class="">
+                        <h5  class="fw-bold"  style="
+                            padding-top: 30px;color:#a56600;">{{p.title}}</h5>
+                        <!-- <div class="cost mt-3 text-dark">
+                            <span  style="color:#a56600;">Rs.{{p.selling_price}}"></span>
+                        </div> -->
+                    
+              
+                
+
+                    <div class="p-3 shoe text-center text-white mt-3 cursor">
+                        <span  class="fw-bold" style="color:#a56600;">Rs.{{p.selling_price}} </span>
+                    </div>
+               </div>
+            </div>
+                </div>
+            </a>
+            {% endfor %}
+
+        
+       
+    </div>
+</div>
+       
+
+{% endblock main-content %}
+

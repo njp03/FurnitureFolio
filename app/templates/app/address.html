@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}ADDRESS{% endblock title %}
+{% block main-content %}
+<div class="container my-5 " >
+ <div class="row">
+ <h3  style="font-family: 'Amiri', serif;
+ font-family: 'Caveat', cursive;">{{user.username|capfirst}}</h3>
+  <div class="col-sm-2 border-end">
+   <ul class="list-unstyled">
+    <li class="d-grid"><a href="{% url 'profile' %}" class=" btn {{active}}">Profile</a></li>
+    <li class="d-grid"><a href="{% url 'address' %}" class="btn">Address</a></li>
+   </ul>
+  </div>
+  <div class="col-sm-9 offset-sm-1">
+   <div class="row">
+       {% if add %}
+    {% for ad in add %}
+
+    <div class="col-sm-6">
+     <div class="card" style=" box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;">
+      <div class="card-body">
+       <h3>Address {{forloop.counter}}</h3>
+       <hr>
+       <p>Name: {{ad.name}}</p>
+       <p>Locality : {{ad.locality}}</p>
+       <p>City : {{ad.city}}</p>
+       <p>State: {{ad.state}}</p>
+       <p>Pin Code: {{ad.zipcode}}</p>
+       <div class="d-flex justify-content-between">
+        <a href="{% url 'removeadd' ad.id %}" class="btn btn-sm btn-secondary mr-3 remove-add" >Remove  </a>
+        </div>
+      </div>
+     </div>
+    </div>
+   {% endfor %}
+   {% else %}
+   <div class="container my-5">
+    <div class="col-sm-9 offset-sm-1 text-center">
+    
+      <img src="{% static 'app/images/noprofile.png' %}" alt="" class="img-fluid">
+    </div>
+    <p class="fw-bold" style="color:#a56600;   
+    text-align: center;
+    font-size: 44px;"> No Profile found</p>
+    </div>
+    {% endif %}
+   </div>
+  </div>
+ </div>
+</div>
+{% endblock main-content %}
