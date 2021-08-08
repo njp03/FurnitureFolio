@@ -60,7 +60,7 @@
 {    position: relative;
     border:1px sblack;
     /* outline:none; */
-    width: 400px;
+    width: 331px;
     height:400px;
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
@@ -78,7 +78,7 @@
     background: black;
     top: 327px;
     overflow: hidden;
-    width: 400px;
+    width: 331px;
     left: 0px;
     border-radius: 9px;
 }
