@@ -60,7 +60,7 @@
 {    position: relative;
     /* border:1px sblack; */
     /* outline:none; */
-    width: 331px;
+    width: 330px;
     height:400px;
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
@@ -75,10 +75,10 @@
 
 .shoe
 {  position: absolute;
-    background: black;
+    background: rgb(0, 0, 0);
     top: 327px;
     overflow: hidden;
-    width: 331px;
+    width: 330px;
     left: 0px;
     border-radius: 9px;
 }
@@ -176,7 +176,7 @@ margin-bottom: 10px;
     background: black;
     top: 327px;
     overflow: hidden;
-    width: 331px;
+    width: 330px;
     left: 0px;
     border-radius: 9px;
 }
@@ -184,7 +184,7 @@ margin-bottom: 10px;
 {    position: relative;
     border:1px sblack;
     /* outline:none; */
-    width: 331px;
+    width: 330px;
     height:300px;
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
