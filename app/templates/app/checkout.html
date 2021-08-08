@@ -1,65 +1,91 @@
+
+
 {% extends 'app/base.html' %}
 {% load static %}
 {% block title %}Buy Now{% endblock title %}
 {% block main-content %}
-<div class="container">
- <div class="row mt-5">
-  <div class="col-sm-6">
-    <h4>Order Summary</h4>
-    <hr>
+<div class="container my-5">
+ <div class="row">
+
+  <h1 class="text-center mb-5" style="font-family: 'Amiri', serif;
+  font-family: 'Caveat', cursive;
+  font-family: 'Hahmlet', serif; color:#a56600;">Orders</h1>
+ 
+    
+  <div class="col-sm-8">
+  <div class="card">
+   <div class="card-body">
+    
+    
     {% for item in cart_items %}
-    <hr class="text-muted">
-      <!-- <div class="card mb-2">
-        <div class="card-body"> -->
-          <div class="container my-5">
-            <div class="row">
-          <div class="col-sm-6 text-center align-self-center">
-           <img src="{{item.product.product_image.url}}" alt="" srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"> 
-          </div>
-          <div class="col-sm-5 offset-sm-1">
+   
+    
+    <div class="row">
+     <div class="col-sm-3 text-center align-self-center"><img src="{{item.product.product_image.url}}" alt="" srcset="" class="img-fluid img-thumbnail shadow-sm" height="150" width="150"> </div>
+     <div class="col-sm-9">
+      
+        <div >
           <h5> {{item.product.title}}</h5>
           <p>Quantity: {{item.quantity}}</p>
           <p class="fw-bold">Price: {{item.total_cost}}</p>
           
         </div>
-      </div>
-      </div>
+       <!-- <p class="mb-2 text-muted small">{{cart.product.description}}</p> -->
+       
+     </div>
+    </div>
+    <hr class="text-muted">
+    
     {% endfor %}
-    <p class="fw-bold btn btn-secondary text-center col-sm-5 offset-sm-1" style="color:black;">Total Cost : {{totalamount}}</p>
-   <div class="col-sm-5 offset-sm-1"> <small >Including Rs.150 Shipping charge <br > <p style="color:#a56600;">Currently Online Payment is not Available </p></small>
-  </div>
-  </div>
-  <div class="col-sm-4 offset-sm-1">
-  
-    <h4>Select Shipping Address</h4>
-    <hr>
-    {% if add %}
-    <form action="/paymentdone">
-      {% for ad in add %}
-      <div class="card">
-        <div class="card-body">
-        <h5>{{ad.name}} </h5>
-        <p>{{ad.locality}},{{ad.city}},{{ad.state}} - {{ad.zipcode}}</p>
-        </div>
-      </div>
-        <div class="form-check mt-2 mb-5">
-          <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}" checked>
-          <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">
-            Address: {{forloop.counter}} </label>
-        </div>
-        {% endfor %}
-        <div class="text-end">
 
-          <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Confirm</button>
-          
-        </div>
-      </form>
-   
+    <div>
+      <p class="fw-bold btn btn-secondary text-center col-sm-5 offset-sm-1" style="color:black;">Total Cost : {{totalamount}}</p>
+      <div class="col-sm-5 offset-sm-1"> <small >Including Rs.150 Shipping charge <br > <p style="color:#a56600;">Currently Online Payment is not Available </p></small>
+      </div>
+     </div>
+    
  
-{% else %}
+   </div>
+   </div>
+  </div>
+ 
+  <div class="col-sm-4">
+    <div class="card">
+     <div class="card-body">
+      <h4>Select Shipping Address</h4>
+      <hr>
+      {% if add %}
+      <form action="/paymentdone">
+        {% for ad in add %}
+       <div>
+          <h5>{{ad.name}} </h5>
+          <p>{{ad.locality}},{{ad.city}},{{ad.state}} - {{ad.zipcode}}</p>
+          </div>
+        
+          <div class="form-check mt-2 mb-5">
+            <input class="form-check-input" type="radio" name="custid" id="custadd{{forloop.counter}}" value="{{ad.id}}" checked>
+            <label class="form-check-label fw-bold" for="custadd{{forloop.counter}}">
+              Address: {{forloop.counter}} </label>
+          </div>
+          {% endfor %}
+          <div class="text-end">
+  
+            <div class="d-grid"><a href="{% url 'checkout' %}" class="btn btn-dark">Confirm</a></div>
+            
+          </div>
+        </form>
+        {% else %}
 <a href="{% url 'profile' %}" class=" btn  btn-warning shadow px-5 py-2 ms-2 ">Set Profile </a>
 {% endif %}
-</div>
-</div>
-</div>
-{% endblock main-content %}
+       
+
+     </div>
+    </div>
+   
+ 
+    
+   </div>
+   
+  </div>
+ </div>
+ {% endblock main-content %}

@@ -58,9 +58,9 @@
 }
 .mycard
 {    position: relative;
-    border:1px sblack;
+    /* border:1px sblack; */
     /* outline:none; */
-    width: 400px;
+    width: 331px;
     height:400px;
     background-color: rgb(255, 255, 255);
     border-radius: 9px;
@@ -78,7 +78,7 @@
     background: black;
     top: 327px;
     overflow: hidden;
-    width: 400px;
+    width: 331px;
     left: 0px;
     border-radius: 9px;
 }
@@ -171,5 +171,26 @@ margin-bottom: 10px;
         width:100%;
        
     }
+    .shoe
+{  position: absolute;
+    background: black;
+    top: 327px;
+    overflow: hidden;
+    width: 331px;
+    left: 0px;
+    border-radius: 9px;
+}
+.mycard
+{    position: relative;
+    border:1px sblack;
+    /* outline:none; */
+    width: 331px;
+    height:300px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+    transition: transform .3s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    
+}
 }
 
