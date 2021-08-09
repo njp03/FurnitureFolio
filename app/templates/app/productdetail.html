@@ -14,20 +14,25 @@
    <h4 style="color:#a56600;">Rs. {{product.selling_price}} </h4> <br>
 {% if request.user.is_authenticated %}
    {% if not item_in_cart %}
-   <form action= '/add-to-cart' class="d-inline">
+   <div class="text " style="margin-bottom: 20px;">
+   <form action= '/add-to-cart' >
        <input type="hidden" name="prod_id" value={{product.id}} id="prod_id">
        <button type="submit" class="btn btn-dark shadow px-5 py-2 ms-2">Add to Cart</button>
    </form>
+</div>
    {% else %}
+   <div class="text" style="margin-bottom: 20px;">
    <a href="{% url 'showcart' %}" class='btn btn-warning  shadow px-5 py-2 ms-2 ' >Got to cart</a>
    <!-- <a href="{% url 'showcart' %}" class="btn btn-danger shadow px-5 py-2 ms-3  "  >Buy Now</a> -->
-
+</div>
 {% endif %}
 {% else %}
-<form action= '/add-to-cart' class="d-inline">
+<div class="text " style="margin-bottom: 20px;">
+    <form action= '/add-to-cart' >
     <input type="hidden" name="prod_id" value={{product.id}} id="prod_id">
     <button type="submit" class="btn btn-dark  px-5 py-2 ms-2">Add to Cart</button>
 </form>
+</div>
 {% endif %}
 
 
