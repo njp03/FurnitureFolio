@@ -101,7 +101,7 @@
 .footer{
 background-color: #24262b;
 padding: 0px 0;
-height:50px;
+height: 40px;
 position:fixed;
 bottom: 0px;
 width:100%;
@@ -125,6 +125,7 @@ width:100%;
     font-weight: 500;
     position: relative;
 }
+
 .footer-col h4::before
 {
     content:'';
@@ -140,10 +141,10 @@ width:100%;
 .footer-col ul {
 margin-bottom: 10px;
 }
-.footer-col h4
+.footer-col h4 
 {
     font-size:16px;
-    text-transform: capitalize;
+   
      color:#fff;
      text-decoration: none;
      font-weight: 300;
@@ -152,6 +153,7 @@ margin-bottom: 10px;
     
      transition: all 0.3s ease;
 }
+
 .footer-col h4:hover{
     color: #fff;
     padding-left: 8px;
