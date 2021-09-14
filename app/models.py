@@ -29,7 +29,7 @@ class Product(models.Model):
     category=models.CharField(choices=CATEGORY_CHOICES,max_length=2)
     product_image=models.ImageField(upload_to='productimg')
 
-    def __str(self):
+    def __str__(self):
         return str(self.id)
 
 class Cart(models.Model):
@@ -37,7 +37,7 @@ class Cart(models.Model):
     product=models.ForeignKey(Product,on_delete=CASCADE)
     quantity=models.PositiveBigIntegerField(default=1)
 
-    def __str(self):
+    def __str__(self):
         return str(self.id)
     @property
     def total_cost(self):
@@ -53,7 +53,7 @@ class OrderPlaced(models.Model):
     order_date=models.DateTimeField(auto_now_add=True)
     status=models.CharField(max_length=50,choices=STATUS_CHOICE,default='Pending')
 
-    def __str(self):
+    def __str__(self):
         return str(self.id)
     @property
     def total_cost(self):

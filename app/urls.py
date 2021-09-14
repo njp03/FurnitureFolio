@@ -1,8 +1,8 @@
 #from app.forms import CustomerRegistrationForm
 from django.urls import path
 from app import views
-from django.conf import settings
-from django.conf.urls.static import static
+from django.conf import settings #for images
+from django.conf.urls.static import static #for images
 from django.contrib.auth import views as auth_views
 from .forms import LoginForm ,MyPasswordChangeForm ,MyPasswordResetForm,MySetPasswordForm
 from django.views.static import serve
@@ -42,7 +42,7 @@ urlpatterns = [
     path('paymentdone/', views.paymentdone, name='paymentdone'),
     
     path('login/', redirect_view),
-    path('logout/',auth_views.LogoutView.as_view(next_page='home'),name='logout'),
+    path('logout/',auth_views.LogoutView.as_view(next_page='index'),name='logout'),
     path('changepassword/',auth_views.PasswordChangeView.as_view(template_name='app/changepassword.html',form_class=MyPasswordChangeForm ,success_url="/passwordchangedone/"),name='changepassword'),
     path('passwordchangedone/',auth_views.PasswordChangeView.as_view(template_name='app/passwordchangedone.html'),name='passwordchangedone'),
     path('password-reset/',auth_views.PasswordResetView.as_view(template_name='app/password_reset.html',form_class=MyPasswordResetForm),name='password_reset'),

@@ -1,7 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render,redirect
 from django.views import View
-from .models import Product,Customer,OrderPlaced,Cart
+from .models import Product,Customer,OrderPlaced,Cart #import tables
 from .forms import CustomerRegistrationForm,CustomerProfileForm,UserCreationForm
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -11,6 +11,7 @@ from django.utils.decorators import method_decorator
 import random 
 import http.client
 from django.conf import settings
+
 class ProductView(View):
     def get(self,request):
         table=Product.objects.filter(category='T')
@@ -100,6 +101,7 @@ def remove_cart(request):
             'totalamount':amount+shipping_amount
         }
         return JsonResponse(data)
+        
 @login_required
 def remove_add(request,pk):
     address=Customer.objects.get(id=pk)
@@ -189,9 +191,11 @@ def sofa(request):
  
     sofa=Product.objects.filter(category='S')
     return render(request, 'app/sofa.html',{'sofa':sofa})
+
 def chair(request):
     chair=Product.objects.filter(category="C")
     return render(request,'app/chair.html',{'chair':chair})
+    
 def payment(request):
     pass
 
